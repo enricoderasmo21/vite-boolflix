@@ -10,7 +10,6 @@ export default {
     }
   },
 
-  emits: ['searchFilm'],
 }
 </script>
 

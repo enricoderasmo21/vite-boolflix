@@ -21,6 +21,7 @@ export default {
     clickLink(index) {
         this.activeLink = index;
     },
+    
 
   },
 
@@ -37,15 +38,18 @@ export default {
     <nav>
         <div id="navbar">
             <div id="left-inner">
+
               <div id="logo">
                 <img src="/img/logo.png" alt="">
               </div>
+
               <ul id="link-list">
                 <li v-for="(link, index) in this.links" @click="clickLink(index)" class="link" :class="index == activeLink ? 'active' : ''"> {{ link }}</li>
               </ul>
+
             </div>
 
-            <SearchItem></SearchItem>
+            <SearchItem @searchFilm="$emit('searchFilm')"></SearchItem>
         </div>
 
     </nav>
@@ -68,6 +72,8 @@ export default {
     height: 80px;
 
     background-color: #0b0b0b;
+
+    box-shadow: 8px 15px 20px rgba(0, 0, 0, .8);
 
     #left-inner{
         display: flex;

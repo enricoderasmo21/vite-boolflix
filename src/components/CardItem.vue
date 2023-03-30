@@ -17,21 +17,29 @@ export default {
 
 <template>
     <div class="card">
-        <div>Titolo: {{ card.title }} </div>
-        <div>Titolo originale: {{ card.original_title }} </div>
-        <div>Lingua: {{ card.original_lenguage }} </div>
-        <div>Voto: {{ card.vote_average }} </div>
+        <span class="title">Titolo:</span > {{ card.title }} <br>
+        <span class="title">Titolo originale:</span > {{ card.original_title }} <br>
+        <span class="title">Lingua:</span > {{ card.original_lenguage }} <br>
+        <span class="title">Voto:</span > {{ card.vote_average }} <br>
     </div>
 </template>
 
 <style scoped lang="scss">
 .card{
-    width: 400px;
-    height: 100px;
+  padding: 20px;
+  
+  width: calc(100% / 6 - 20px);
+  min-height: 120px;
 
-    background-color: black;
+  border: 1px solid #d81820;
 
-    font-size: 0.7em;
+  background-color: black;
+
+  font-size: 0.7em;
+
+    .title{
+      color: #d81820;
+    }
 }
 
 </style>

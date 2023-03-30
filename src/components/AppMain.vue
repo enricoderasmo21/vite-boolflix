@@ -31,11 +31,11 @@ export default {
 #container{
     display: flex;
     flex-flow: row wrap;
-    gap: 10px;
+    gap: 20px;
 
     margin-top: 80px;
 
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 </style>
