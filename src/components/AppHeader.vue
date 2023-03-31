@@ -49,7 +49,7 @@ export default {
 
             </div>
 
-            <SearchItem @searchFilm="$emit('searchFilm')"></SearchItem>
+            <SearchItem @search="$emit('search')"></SearchItem>
         </div>
 
     </nav>

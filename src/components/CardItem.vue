@@ -17,9 +17,9 @@ export default {
 
 <template>
     <div class="card">
-        <span class="title">Titolo:</span > {{ card.title }} <br>
-        <span class="title">Titolo originale:</span > {{ card.original_title }} <br>
-        <span class="title">Lingua:</span > {{ card.original_lenguage }} <br>
+        <span class="title">Titolo:</span > {{ card.title }} {{ card.name }} <br>
+        <span class="title">Titolo originale:</span > {{ card.original_title }} {{ card.original_name }} <br>
+        <span class="title">Lingua:</span > {{ card.original_language }} <br>
         <span class="title">Voto:</span > {{ card.vote_average }} <br>
     </div>
 </template>

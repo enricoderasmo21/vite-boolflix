@@ -29,15 +29,26 @@ export default {
 
     searchFilm(){
       
-      axios.get(this.store.APISearchCall + "&query=" + this.store.filmSearch).then((res) => {
-
-      console.log(res)
+      axios.get(this.store.APIFilmSearchCall + "&query=" + this.store.userSearch).then((res) => {
   
       this.store.filmResultList = res.data.results;
 
       console.log(res.data.results);
       
       });
+    },
+
+    searchSeries() {
+
+      axios.get(this.store.APISeriesSearchCall + "&query=" + this.store.userSearch).then((res) => {
+  
+      this.store.seriesResultList = res.data.results;
+
+      console.log(res.data.results);
+  
+  });
+
+
     }
   }
 }
@@ -45,7 +56,7 @@ export default {
 
 <template>
 
-  <AppHeader @searchFilm="searchFilm()"></AppHeader>
+  <AppHeader @search="searchFilm(), searchSeries()"></AppHeader>
   <AppMain></AppMain>
  
 </template>

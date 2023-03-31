@@ -23,6 +23,7 @@ export default {
 
    <div id="container">
        <CardItem v-for="film in this.store.filmResultList" :card="film"></CardItem>
+       <CardItem v-for="series in this.store.seriesResultList" :card="series"></CardItem>
    </div>
 
 </template>
