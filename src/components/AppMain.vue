@@ -1,6 +1,7 @@
 <script>
 import {store} from '../store.js';
 
+
 import CardItem from './CardItem.vue';
 
 export default {
@@ -15,28 +16,69 @@ export default {
 
     CardItem,
 
-  }
+  },
 }
 </script>
 
 <template>
 
    <div id="container">
-       <CardItem v-for="film in this.store.filmResultList" :card="film"></CardItem>
-       <CardItem v-for="series in this.store.seriesResultList" :card="series"></CardItem>
+   <!-- Home Page -->
+    <div id="default-home-container" v-show="this.store.activeLink == 0">
+      <div class="title">Film</div>
+      <div id="inner-container">
+        <CardItem v-for="filmThumb in this.store.movies" :card="filmThumb" ></CardItem>
+      </div>
+      <div class="title">Serie TV</div>
+      <div id="inner-container">
+        <CardItem v-for="seriesThumb in this.store.series" :card="seriesThumb" ></CardItem>
+      </div>
+    </div>
+
+    <!-- Film Page -->
+    <div v-show="this.store.activeLink == 2">
+      <div v-if="this.store.moviesResultList.length <= 0" class="title">
+        Scrivi un titolo nella barra della ricerca
+      </div>
+      <div v-else>
+        <CardItem v-for="film in this.store.moviesResultList" :card="film"></CardItem>
+      </div>
+    </div>
+
+    <!-- Series Page -->
+    <div v-show="this.store.activeLink == 1">
+      <div v-if="this.store.seriesResultList.length <= 0" class="title">
+        Scrivi un titolo nella barra della ricerca
+      </div>
+      <div v-else>
+        <CardItem v-for="series in this.store.seriesResultList" :card="series"></CardItem>
+      </div>
+    </div>
+
    </div>
 
 </template>
 
 <style scoped lang="scss">
 #container{
-    display: flex;
-    flex-flow: row wrap;
-    gap: 20px;
-
     margin-top: 80px;
 
     padding: 40px 20px;
+
+    .title{
+      margin-bottom: 20px;
+
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    #inner-container{
+      display: flex;
+      flex-flow: row wrap;
+      gap: 20px;
+
+      margin-bottom: 40px;
+    }
 }
 
 </style>

@@ -15,7 +15,7 @@ export default {
 
 <template>
 
-    <div id="search-inner">
+    <div id="search-inner" v-show="this.store.activeLink != 0">
         <input v-model="store.userSearch" @keyup.enter="$emit('search')" id="searchbar" type="text" placeholder="Scrivi il nome di un film o di una serie TV...">
         <button @click="$emit('search')" id="btn">CERCA</button>
     </div>

@@ -11,15 +11,14 @@ export default {
       store,
 
       links: ["Home", "Serie TV", "Film", "Nuovi e popolari", "La mia lista", "Sfoglia per lingua"],
-
-      activeLink: 0,
+  
     }
   },
 
   methods: {
 
     clickLink(index) {
-        this.activeLink = index;
+        this.store.activeLink = index;
     },
     
 
@@ -44,7 +43,7 @@ export default {
               </div>
 
               <ul id="link-list">
-                <li v-for="(link, index) in this.links" @click="clickLink(index)" class="link" :class="index == activeLink ? 'active' : ''"> {{ link }}</li>
+                <li v-for="(link, index) in this.links" @click="clickLink(index)" class="link" :class="index == this.store.activeLink ? 'active' : ''"> {{ link }}</li>
               </ul>
 
             </div>
@@ -60,6 +59,8 @@ export default {
     position: fixed;
     left: 0;
     top: 0;
+
+    z-index: 2;
 
     display: flex;
     flex-direction: row;
