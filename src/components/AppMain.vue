@@ -22,9 +22,9 @@ export default {
 
 <template>
 
-   <div id="container">
+  <div id="container">
    <!-- Home Page -->
-    <div id="default-home-container" v-show="this.store.activeLink == 0">
+    <div  v-show="this.store.activeLink == 0">
       <div class="title">Film</div>
       <div id="inner-container">
         <CardItem v-for="filmThumb in this.store.movies" :card="filmThumb" ></CardItem>
@@ -40,7 +40,7 @@ export default {
       <div v-if="this.store.moviesResultList.length <= 0" class="title">
         Scrivi un titolo nella barra della ricerca
       </div>
-      <div v-else>
+      <div v-else id="inner-container">
         <CardItem v-for="film in this.store.moviesResultList" :card="film"></CardItem>
       </div>
     </div>
@@ -50,7 +50,7 @@ export default {
       <div v-if="this.store.seriesResultList.length <= 0" class="title">
         Scrivi un titolo nella barra della ricerca
       </div>
-      <div v-else>
+      <div v-else id="inner-container">
         <CardItem v-for="series in this.store.seriesResultList" :card="series"></CardItem>
       </div>
     </div>
@@ -68,7 +68,7 @@ export default {
     .title{
       margin-bottom: 20px;
 
-      font-size: 1.6em;
+      font-size: 2em;
       font-weight: bold;
     }
 
@@ -77,7 +77,7 @@ export default {
       flex-flow: row wrap;
       gap: 20px;
 
-      margin-bottom: 40px;
+      margin-bottom: 60px;
     }
 }
 

@@ -7,6 +7,8 @@ export default {
     return {
 
       store,
+
+      star: 5,
     }
   },
 
@@ -46,6 +48,16 @@ export default {
       }
 
       return language;
+    },
+
+    voteStar(){
+
+      let vote = Math.ceil(this.card.vote_average / 2);
+
+      let starActive = Array(vote).fill(1);
+      let starEmpty = Array(this.star - vote).fill(0);
+
+      return starActive.concat(starEmpty);
     } 
   }
 } 
@@ -53,29 +65,38 @@ export default {
 
 <template>
     <div class="card">
+        <div class="img-container">
+          <img :src="`https://image.tmdb.org/t/p/original${card.poster_path}`" alt="">
+        </div>
         <span class="title">Titolo:</span > {{ card.title }} {{ card.name }} <br>
         <span class="title">Titolo originale:</span > {{ card.original_title }} {{ card.original_name }} <br>
         <span class="title">Lingua:</span> <span :class="`fi fi-${flagLanguage()}`"> </span> <br>
-        <span class="title">Voto:</span > {{ card.vote_average }} <br>
+        <span class="title">Voto:</span> <i v-for="star in voteStar()" :class="star ? 'active': ''" class="fa-solid fa-star"></i> <br>
     </div>
 </template>
 
 <style scoped lang="scss">
 .card{
-  padding: 20px;
   
   width: calc(100% / 6 - 20px);
-  min-height: 120px;
-
-  border: 1px solid #d81820;
-
-  background-color: black;
 
   font-size: 0.7em;
 
-    .title{
-      color: #d81820;
-    }
+  .img-container{
+    width: 100%;
+  }
+
+  img{
+    width: 100%;  
+  }
+
+  .title{
+    color: #d81820;
+  }
+
+  .active{
+    color: #d81820;
+  }
 }
 
 </style>

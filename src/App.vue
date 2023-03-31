@@ -33,8 +33,6 @@ export default {
 
         this.store.series = res.data.results;
       });
-
-
     }
 
     
