@@ -24,7 +24,7 @@ export default {
 
   <div id="container">
    <!-- Home Page -->
-    <div  v-show="this.store.activeLink == 0">
+    <div  v-show="this.store.activeLink == 0" >
       <div class="title">Film</div>
       <div id="inner-container">
         <CardItem v-for="filmThumb in this.store.movies" :card="filmThumb" ></CardItem>

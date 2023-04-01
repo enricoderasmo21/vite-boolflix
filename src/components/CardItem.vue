@@ -9,6 +9,8 @@ export default {
       store,
 
       star: 5,
+
+      viewInfo: false,
     }
   },
 
@@ -58,44 +60,100 @@ export default {
       let starEmpty = Array(this.star - vote).fill(0);
 
       return starActive.concat(starEmpty);
-    } 
+    },
   }
 } 
 </script>
 
 <template>
-    <div class="card">
+    <div class="card" @mouseover="viewInfo = true" @mouseleave="viewInfo = false">
         <div class="img-container">
           <img :src="`https://image.tmdb.org/t/p/original${card.poster_path}`" alt="">
         </div>
-        <span class="title">Titolo:</span > {{ card.title }} {{ card.name }} <br>
-        <span class="title">Titolo originale:</span > {{ card.original_title }} {{ card.original_name }} <br>
-        <span class="title">Lingua:</span> <span :class="`fi fi-${flagLanguage()}`"> </span> <br>
-        <span class="title">Voto:</span> <i v-for="star in voteStar()" :class="star ? 'active': ''" class="fa-solid fa-star"></i> <br>
+        <div id="card-info" v-show="viewInfo">
+          <div class="text-row"> <span class="title">Titolo:</span > {{ card.title }} {{ card.name }} </div>
+          <div class="text-row"> <span class="title">Titolo originale:</span > {{ card.original_title }} {{ card.original_name }}</div> 
+          <div class="text-row"> <span class="title">Lingua:</span> <span :class="`fi fi-${flagLanguage()}`"> </span> </div>
+          <div class="text-row"> <span class="title">Voto:</span> <i v-for="star in voteStar()" :class="star ? 'active': ''" class="fa-solid fa-star"></i> </div>
+          <a id="play" href=""> <i class="fa-regular fa-circle-play"></i> </a>
+        </div>
     </div>
 </template>
 
 <style scoped lang="scss">
 .card{
+  margin-bottom: 80px;
   
   width: calc(100% / 6 - 20px);
 
   font-size: 0.7em;
 
+  transition: all .2s ease-in-out;
+
   .img-container{
     width: 100%;
+    
+    img{
+      width: 100%;  
+    }
   }
 
-  img{
-    width: 100%;  
+  #card-info{
+    position: relative;
+
+    padding: 10px 10px;
+
+    width: 100%;
+    height: 130px;
+
+    border-radius: 0 0 20px 20px;
+
+    background-color: #181818;
+
+    .text-row{
+      font-size: 1.2em;
+
+
+      .title{
+        color: #d81820;
+        
+        font-weight: bold;
+      }
+    
+      .active{
+        color: #d81820;
+      }
+    }
+
+    #play{
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+
+      color: white;
+      font-size: 3em;
+
+    }
   }
 
-  .title{
-    color: #d81820;
+  &:hover{
+    transform: scale(1.5);
+
+    border: 2px solid #181818;
+    border-radius: 20px;
+
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.6);
   }
 
-  .active{
-    color: #d81820;
+  &:hover #card-info{
+    position: absolute;
+    bottom: -20px;
+  }
+
+  &:hover .img-container{
+    border-radius: 20px;
+
+    overflow: hidden;
   }
 }
 

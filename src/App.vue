@@ -33,9 +33,7 @@ export default {
 
         this.store.series = res.data.results;
       });
-    }
-
-    
+    } 
   },
 
   methods: {
@@ -49,11 +47,9 @@ export default {
           this.store.moviesResultList = res.data.results;
 
           console.log(res.data.results);
-
+          
         });
-
       }
-  
     },
 
     searchSeries() {
