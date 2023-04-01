@@ -104,7 +104,7 @@ export default {
     padding: 10px 10px;
 
     width: 100%;
-    height: 130px;
+    min-height: 125px;
 
     border-radius: 0 0 20px 20px;
 
