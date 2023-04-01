@@ -61,24 +61,24 @@ export default {
 
 <style scoped lang="scss">
 #container{
-    margin-top: 80px;
+  margin-top: 80px;
 
-    padding: 40px 20px;
+  padding: 40px 60px;
 
-    .title{
-      margin-bottom: 20px;
+  .title{
+    margin-bottom: 20px;
 
-      font-size: 2em;
-      font-weight: bold;
-    }
+    font-size: 2em;
+    font-weight: bold;
+  }
 
-    #inner-container{
-      display: flex;
-      flex-flow: row wrap;
-      gap: 20px;
+  #inner-container{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
 
-      margin-bottom: 60px;
-    }
+    margin-bottom: 60px;
+  }
 }
 
 </style>

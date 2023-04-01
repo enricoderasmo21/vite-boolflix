@@ -84,7 +84,7 @@ export default {
 .card{
   margin-bottom: 80px;
   
-  width: calc(100% / 6 - 20px);
+  width: calc(100% / 6 - 20px / 6 * 5);
 
   font-size: 0.7em;
 
