@@ -67,7 +67,10 @@ export default {
 
 <template>
     <div class="card" @mouseover="viewInfo = true" @mouseleave="viewInfo = false">
-        <div class="img-container">
+        <div class="img-container-null" v-if="this.card.poster_path == null">
+          <img  src="/img/null.jpg" alt="" class="null">
+        </div>
+        <div class="img-container" v-else>
           <img :src="`https://image.tmdb.org/t/p/original${card.poster_path}`" alt="">
         </div>
         <div id="card-info" v-show="viewInfo">
@@ -90,11 +93,23 @@ export default {
 
   transition: all .2s ease-in-out;
 
+  .img-container-null{
+    height: 330px;
+
+    overflow: hidden;
+
+    img{
+      width: 100%;
+
+      object-position: 0 -35px;
+    }
+  }
+
   .img-container{
     width: 100%;
     
     img{
-      width: 100%;  
+      width: 100%; 
     }
   }
 
