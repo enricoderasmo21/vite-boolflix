@@ -25,27 +25,22 @@ export default {
       let language = this.card.original_language;
       
       if (language == "en") {
-      
         language = "gb";
       }
 
       if (language == "zh") {
-      
-      language = "cn";
+        language = "cn";
       }
 
       if (language == "ja") {
-      
-      language = "jp";
+        language = "jp";
       }
 
       if (language == "ko") {
-      
-      language = "kr";
+        language = "kr";
       }
 
       else if (language == "") {
-
         language = "sconosciuta"
       }
 
@@ -67,12 +62,14 @@ export default {
 
 <template>
     <div class="card" @mouseover="viewInfo = true" @mouseleave="viewInfo = false">
+
         <div class="img-container-null" v-if="this.card.poster_path == null">
           <img  src="/img/null.jpg" alt="" class="null">
         </div>
         <div class="img-container" v-else>
           <img :src="`https://image.tmdb.org/t/p/original${card.poster_path}`" alt="">
         </div>
+
         <div id="card-info" v-show="viewInfo">
           <div class="text-row"> <span class="title">Titolo:</span > {{ card.title }} {{ card.name }} </div>
           <div class="text-row"> <span class="title">Titolo originale:</span > {{ card.original_title }} {{ card.original_name }}</div> 
@@ -85,9 +82,11 @@ export default {
 
 <style scoped lang="scss">
 .card{
+  flex-shrink: 0;
+
   margin-bottom: 80px;
   
-  width: calc(100% / 6 - 20px / 6 * 5);
+  width: calc(100% / 6 - 20px);
 
   font-size: 0.7em;
 
@@ -126,7 +125,7 @@ export default {
     background-color: #181818;
 
     .text-row{
-      font-size: 1.2em;
+      font-size: 1.1em;
 
 
       .title{

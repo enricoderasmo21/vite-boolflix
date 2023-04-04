@@ -14,13 +14,10 @@ export default {
 </script>
 
 <template>
-  <!-- v-show="this.store.activeLink != 0" -->
-  
     <div id="search-inner" >
         <input v-model="store.userSearch" @keyup.enter="$emit('search')" id="searchbar" type="text" placeholder="Scrivi il nome di un film o di una serie TV...">
         <button @click="$emit('search')" id="btn">CERCA</button>
     </div>
- 
 </template>
 
 <style scoped lang="scss">

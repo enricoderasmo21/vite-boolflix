@@ -40,8 +40,8 @@ export default {
 <template>
     <nav>
         <div id="navbar">
+          
             <div id="left-inner">
-
               <div id="logo">
                 <img src="/img/logo.png" alt="">
               </div>
@@ -49,7 +49,6 @@ export default {
               <ul id="link-list">
                 <li v-for="(link, index) in this.links" @click="clickLink(index)" class="link" :class="index == this.store.activeLink ? 'active' : ''"> {{ link }}</li>
               </ul>
-
             </div>
 
             <SearchItem @search="$emit('search')"></SearchItem>
