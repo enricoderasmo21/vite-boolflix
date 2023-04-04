@@ -19,6 +19,10 @@ export default {
 
     clickLink(index) {
         this.store.activeLink = index;
+
+        this.store.moviesResultList = [];
+        this.store.seriesResultList = [];
+        this.store.userSearch = '';
     },
     
 

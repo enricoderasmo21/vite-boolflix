@@ -26,10 +26,10 @@ export default {
     
     <!-- Home Page -->
     <div v-show="this.store.activeLink == 0">
-      <div  v-if="this.store.moviesResultList.length <= 0">
+      <div  v-if="this.store.moviesResultList.length <= 0 || this.store.seriesResultList.length <= 0">
         <div class="title">Film</div>
         <div id="inner-container">
-          <CardItem v-for="filmThumb in this.store.movies" :card="filmThumb" ></CardItem>
+          <CardItem v-for="filmThumb in this.store.movies" :card="filmThumb"></CardItem>
         </div>
         <div class="title">Serie TV</div>
         <div id="inner-container">
@@ -37,7 +37,7 @@ export default {
         </div>
       </div>
         
-      <div v-else-if="this.store.moviesResultList.length > 0">
+      <div v-else-if="this.store.moviesResultList.length > 0 || this.store.seriesResultList.length > 0">
         <div class="title">Film</div>
         <div id="inner-container">
           <CardItem v-for="film in this.store.moviesResultList" :card="film"></CardItem>
