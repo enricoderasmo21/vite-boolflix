@@ -21,4 +21,6 @@ export const store = reactive({
     moviesResultList: [],
 
     seriesResultList: [],
+
+    index: 0,
 });

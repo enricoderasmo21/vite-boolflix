@@ -27,6 +27,8 @@ export default {
       axios.get(this.store.APIFilmDefault).then((res) => {
 
         this.store.movies = res.data.results;
+
+        console.log(res.data.results)
       });
 
       axios.get(this.store.APISeriesDefault).then((res) => {
