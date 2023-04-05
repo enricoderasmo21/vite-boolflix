@@ -3,6 +3,7 @@ import {store} from '../store.js';
 
 
 import CardItem from './CardItem.vue';
+import JumboItemMovies from './JumboItemMovies.vue';
 
 export default {
   data() {
@@ -15,6 +16,7 @@ export default {
   components:{
 
     CardItem,
+    JumboItemMovies,
 
   },
 
@@ -32,6 +34,10 @@ export default {
       let right = document.querySelector(id);
 
       right.scrollBy(1400, 0);
+    },
+
+    activeJumboIndex(index){
+      this.store.index = index;
     }
   }
 }
@@ -39,13 +45,16 @@ export default {
 
 <template>
 
+<div v-show="this.store.activeLink == 0 || this.store.activeLink == 2">
+  <JumboItemMovies></JumboItemMovies>
+</div>
+
   <div id="container">
     
     <!-- Home Page -->
     <div v-show="this.store.activeLink == 0">
 
       <div  v-if="this.store.moviesResultList.length <= 0 || this.store.seriesResultList.length <= 0">
-
         <div class="title">Film</div>
         <div class="slider">
           <div @click="scrollLeft('#home-movies')" class="slider-btn btn-left">
@@ -55,7 +64,7 @@ export default {
             <i class="fa-solid fa-chevron-right"></i>
           </div>
         <div id="home-movies" class="inner-container">
-          <CardItem v-for="filmThumb in this.store.movies" :card="filmThumb"></CardItem>
+          <CardItem v-for="(filmThumb, index) in this.store.movies" :card="filmThumb" @click="activeJumboIndex(index)"></CardItem>
         </div>
       </div>
 

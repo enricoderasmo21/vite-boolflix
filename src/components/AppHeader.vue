@@ -2,7 +2,6 @@
 import {store} from '../store.js';
 
 import SearchItem from './SearchItem.vue';
-import JumboItem from './JumboItem.vue';
 
 export default {
     
@@ -31,7 +30,6 @@ export default {
 
   components: {
     SearchItem,
-    JumboItem
 
   }
 
@@ -57,7 +55,6 @@ export default {
         </div>
 
     </nav>
-    <JumboItem></JumboItem>
 </template>
 
 <style scoped lang="scss">
