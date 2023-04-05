@@ -23,4 +23,8 @@ export const store = reactive({
     seriesResultList: [],
 
     index: 0,
+
+    arrayName:'movies',
+
+
 });

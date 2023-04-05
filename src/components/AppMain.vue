@@ -36,8 +36,9 @@ export default {
       right.scrollBy(1400, 0);
     },
 
-    activeJumboIndex(index){
+    activeJumboIndex(index, arrayName){
       this.store.index = index;
+      this.store.arrayName = arrayName;
     }
   }
 }
@@ -45,9 +46,7 @@ export default {
 
 <template>
 
-<div v-show="this.store.activeLink == 0 || this.store.activeLink == 2">
   <JumboItemMovies></JumboItemMovies>
-</div>
 
   <div id="container">
     
@@ -64,7 +63,7 @@ export default {
             <i class="fa-solid fa-chevron-right"></i>
           </div>
         <div id="home-movies" class="inner-container">
-          <CardItem v-for="(filmThumb, index) in this.store.movies" :card="filmThumb" @click="activeJumboIndex(index)"></CardItem>
+          <CardItem v-for="(filmThumb, index) in this.store.movies" :card="filmThumb" @click="activeJumboIndex(index, 'movies')"></CardItem>
         </div>
       </div>
 
@@ -77,7 +76,7 @@ export default {
             <i class="fa-solid fa-chevron-right"></i>
           </div>
         <div id="home-series" class="inner-container">
-          <CardItem v-for="seriesThumb in this.store.series" :card="seriesThumb" ></CardItem>
+          <CardItem v-for="(seriesThumb, ) in this.store.series" :card="seriesThumb" @click="activeJumboIndex(index, 'series')"></CardItem>
         </div>
         </div>
       </div>
@@ -93,7 +92,7 @@ export default {
             <i class="fa-solid fa-chevron-right"></i>
           </div>
           <div id="home-movies-result" class="inner-container">
-            <CardItem v-for="film in this.store.moviesResultList" :card="film"></CardItem>
+            <CardItem v-for="(film, index) in this.store.moviesResultList" :card="film" @click="activeJumboIndex(index, 'moviesResultList')"></CardItem>
           </div>
         </div>
 
@@ -106,7 +105,7 @@ export default {
             <i class="fa-solid fa-chevron-right"></i>
           </div>
           <div id="home-series-result" class="inner-container">
-              <CardItem v-for="series in this.store.seriesResultList" :card="series"></CardItem>
+              <CardItem v-for="(series, index) in this.store.seriesResultList" :card="series" @click="activeJumboIndex(index, 'seriesResultList')"></CardItem>
           </div>
         </div>
       </div>
@@ -126,7 +125,7 @@ export default {
             <i class="fa-solid fa-chevron-right"></i>
           </div>
           <div id="film-movies" class="inner-container">
-            <CardItem v-for="filmThumb in this.store.movies" :card="filmThumb" ></CardItem>
+            <CardItem v-for="(filmThumb, index) in this.store.movies" :card="filmThumb" @click="activeJumboIndex(index, 'movies')"></CardItem>
           </div>
         </div>
       </div>
@@ -142,7 +141,7 @@ export default {
             <i class="fa-solid fa-chevron-right"></i>
           </div>
           <div id="film-movies-result" class="inner-container">
-            <CardItem v-for="film in this.store.moviesResultList" :card="film"></CardItem>
+            <CardItem v-for="(film, index) in this.store.moviesResultList" :card="film" @click="activeJumboIndex(index, 'moviesResultList')"></CardItem>
           </div>
         </div>
       </div>
@@ -162,7 +161,7 @@ export default {
             <i class="fa-solid fa-chevron-right"></i>
           </div>
           <div id="serie_tv-series" class="inner-container">
-            <CardItem v-for="seriesThumb in this.store.series" :card="seriesThumb" ></CardItem>
+            <CardItem v-for="(seriesThumb, index) in this.store.series" :card="seriesThumb" @click="activeJumboIndex(index, 'series')" ></CardItem>
           </div>
         </div>
       </div>
@@ -178,7 +177,7 @@ export default {
             <i class="fa-solid fa-chevron-right"></i>
           </div>
           <div id="serie_tv-series-result" class="inner-container">
-            <CardItem v-for="series in this.store.seriesResultList" :card="series"></CardItem>
+            <CardItem v-for="(series, index) in this.store.seriesResultList" :card="series" @click="activeJumboIndex(index, 'seriesResultList')"></CardItem>
           </div>
         </div>
       </div>
@@ -229,8 +228,12 @@ export default {
   }
 
   .title{
+    // position: relative;
+    // top: 80px;
     font-size: 2em;
     font-weight: bold;
+
+    // z-index: 2;
   }
 
   .inner-container{

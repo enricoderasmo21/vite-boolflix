@@ -28,7 +28,7 @@ export default {
 
         this.store.movies = res.data.results;
 
-        console.log(res.data.results)
+        console.log(res.data.results);
       });
 
       axios.get(this.store.APISeriesDefault).then((res) => {
@@ -48,6 +48,10 @@ export default {
           
           this.store.moviesResultList = res.data.results;
 
+          this.store.arrayName = 'moviesResultList';
+
+          this.store.index = 0;
+
           console.log(res.data.results);
           
         });
@@ -61,6 +65,10 @@ export default {
         axios.get(this.store.APISeriesSearchCall + "&query=" + this.store.userSearch).then((res) => {
           
           this.store.seriesResultList = res.data.results;
+
+          this.store.arrayName = 'seriesResultList';
+
+          this.store.index = 0;
           
           console.log(res.data.results);
         });

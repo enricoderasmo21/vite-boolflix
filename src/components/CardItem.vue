@@ -71,7 +71,7 @@ export default {
         </div>
 
         <div id="card-info" v-show="viewInfo">
-          <div class="text-row"> <span class="title">Titolo:</span > {{ card.title }} {{ card.name }} </div>
+          <div class="text-row"> <span class="title">Titolo:</span > {{ card.title ? card.title : card.name }} </div>
           <div class="text-row"> <span class="title">Titolo originale:</span > {{ card.original_title }} {{ card.original_name }}</div> 
           <div class="text-row"> <span class="title">Lingua:</span> <span :class="`fi fi-${flagLanguage()}`"> </span> </div>
           <div class="text-row"> <span class="title">Voto:</span> <i v-for="star in voteStar()" :class="star ? 'active': ''" class="fa-solid fa-star"></i> </div>
@@ -91,6 +91,8 @@ export default {
   font-size: 0.7em;
 
   transition: all .2s ease-in-out;
+
+  cursor: pointer;
 
   .img-container-null{
     height: 330px;

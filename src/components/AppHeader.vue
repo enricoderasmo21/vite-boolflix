@@ -23,6 +23,27 @@ export default {
         this.store.moviesResultList = [];
         this.store.seriesResultList = [];
         this.store.userSearch = '';
+
+        if(this.store.activeLink == 0) {
+          
+          this.store.arrayName = 'movies';
+
+          this.store.index = 0;
+        }
+
+        if(this.store.activeLink == 1) {
+
+          this.store.arrayName = 'series';
+
+          this.store.index = 0;
+        }
+
+        if(this.store.activeLink == 2) {
+
+          this.store.arrayName = 'movies';
+
+          this.store.index = 0;
+        }
     },
     
 
@@ -63,7 +84,7 @@ export default {
     left: 0;
     top: 0;
 
-    z-index: 2;
+    z-index: 4;
 
     display: flex;
     flex-direction: row;
